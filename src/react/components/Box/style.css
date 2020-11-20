@@ -1,0 +1,21 @@
+.default-vars {
+  --border-radius: 6px;
+  --border-width: 1px;
+  --border-color: #ccc;
+  --bg-color: initial;
+  --padding: 12px;
+}
+
+.box {
+  border-radius: var(--border-radius);
+  border: var(--border-width) solid var(--border-color);
+  background-color: var(--bg-color);
+}
+
+.inner {
+  padding: var(--padding);
+}
+
+.row + .row {
+  border-top: var(--border-width) solid var(--border-color);
+}
