@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        background: #fafafa;
+        color: #333;
+      }
+
+      .c-prefix {
+        display: flex;
+        align-items: baseline;
+        gap: 0.5rem;
+      }
+
+      .c-prefix::before {
+        content: "";
+        flex: 0 0 auto;
+        display: block;
+      }
+
+      .c-prefix.-circle::before {
+        width: 0.8em;
+        height: 0.8em;
+        background-color: #333;
+        border-radius: 50%;
+      }
+
+      .c-prefix.-check::before {
+        width: 0.6em;
+        height: 0.3em;
+        border-left: 0.2em solid #333;
+        border-bottom: 0.2em solid #333;
+        transform: rotate(-45deg);
+        position: relative;
+        top: -0.1em;
+      }
+   </style>
+  </head>
+
+  <body>
+    <div style="width: 600px;">
+      <div class="c-prefix -circle">
+        私はその人を常に先生と呼んでいた。
+      </div>
+
+      <div class="c-prefix -circle">
+        だからここでもただ先生と書くだけで本名は打ち明けない。これは世間を憚かる遠慮というよりも、その方が私にとって自然だからである。私はその人の記憶を呼び起すごとに、すぐ「先生」といいたくなる。筆を執っても心持は同じ事である。よそよそしい頭文字などはとても使う気にならない。
+      </div>
+
+      <div class="c-prefix -check">
+        私はその人を常に先生と呼んでいた。
+      </div>
+
+      <div class="c-prefix -check">
+        だからここでもただ先生と書くだけで本名は打ち明けない。これは世間を憚かる遠慮というよりも、その方が私にとって自然だからである。私はその人の記憶を呼び起すごとに、すぐ「先生」といいたくなる。筆を執っても心持は同じ事である。よそよそしい頭文字などはとても使う気にならない。
+      </div>
+
+      <ul class="list"">
+        <li class="list__item">私はその人を常に先生と呼んでいた。</li>
+      </ul>
+    </div>
+  </body>
+</html>
