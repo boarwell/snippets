@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      .p-card {
+        --bg-color: #eee;
+        --border-radius: 1rem;
+        --transition-duration: 0.25s;
+        --transition-easing: ease-in-out;
+
+        position: relative;
+      }
+
+      .p-card::before {
+        background-color: var(--bg-color);
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        border-radius: var(--border-radius);
+        box-shadow: 0 0 1.25rem 0 rgba(0, 0, 0, 0.05);
+      }
+
+      @media (hover: hover) {
+        .p-card.-scale-up::before {
+          transform: scale(1);
+          transition: all var(--transition-duration) var(--transition-easing);
+        }
+
+        .p-card.-scale-up:hover::before {
+          transform: scale(1.02);
+          box-shadow: 0 0 1.25rem 0 rgba(0, 0, 0, 0.2);
+        }
+      }
+
+      .p-card__inner {
+        padding: 1rem;
+      }
+    </style>
+  </head>
+
+  <body style="width: 600px;">
+    <div class="p-card">
+      <div class="p-card__inner">
+        <div class="p-card__block -heading">
+          <h1>私はその人を常に先生と呼んでいた。</h1>
+        </div>
+
+        <div class="p-card__block">
+          <p>
+            だからここでもただ先生と書くだけで本名は打ち明けない。これは世間を憚かる遠慮というよりも、その方が私にとって自然だからである。私はその人の記憶を呼び起すごとに、すぐ「先生」といいたくなる。筆を執っても心持は同じ事である。よそよそしい頭文字などはとても使う気にならない。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div style="height: 1rem;"></div>
+
+    <div class="p-card -scale-up">
+      <div class="p-card__inner">
+        <div class="p-card__block -heading">
+          <h1>私はその人を常に先生と呼んでいた。</h1>
+        </div>
+
+        <div class="p-card__block">
+          <p>
+            だからここでもただ先生と書くだけで本名は打ち明けない。これは世間を憚かる遠慮というよりも、その方が私にとって自然だからである。私はその人の記憶を呼び起すごとに、すぐ「先生」といいたくなる。筆を執っても心持は同じ事である。よそよそしい頭文字などはとても使う気にならない。
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
