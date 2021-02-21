@@ -32,7 +32,7 @@ export const waitForEvent = (
 
 /** elのtransitionendを待つ */
 export const waitForTransitionEnd = (el: HTMLElement): Promise<unknown> => {
-  return waitForEvent(el, 'transitionend');
+  return waitForEvent(el, "transitionend");
 };
 
 /** requestAnimationFrameをPromiseにする */
@@ -42,3 +42,32 @@ export const waitForAnimationFrame = (): Promise<unknown> => {
   });
 };
 
+/**
+ * イベントリスナをGeneratorにする
+ *
+ * @example
+ * for await (const event of toAsyncIterable(target, 'click')) {
+ *   console.log('Target was clicked');
+ * }
+ *
+ * target.addEventListener('click', () => {
+ *   console.log('Target was clicked');
+ * })
+ */
+export async function* toAsyncIterable<
+  EventName extends keyof HTMLElementEventMap
+>(target: HTMLElement, eventName: EventName) {
+  while (true) {
+    const fired = new Promise<HTMLElementEventMap[EventName]>((resolve) => {
+      target.addEventListener(
+        eventName,
+        (e: HTMLElementEventMap[EventName]) => {
+          resolve(e);
+        },
+        { once: true }
+      );
+    });
+
+    yield await fired;
+  }
+}
