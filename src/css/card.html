@@ -34,13 +34,13 @@
         box-shadow: 0 0 1.25rem 0 rgba(0, 0, 0, 0.05);
       }
 
-      @media (hover: hover) {
+      @media (prefers-reduced-motion: no-preference) and (hover: hover) {
         .p-card.-scale-up::before {
           transform: scale(1);
           transition: all var(--transition-duration) var(--transition-easing);
         }
 
-        .p-card.-scale-up:hover::before {
+        .p-card.-scale-up:is(:hover, :focus)::before {
           transform: scale(1.02);
           box-shadow: 0 0 1.25rem 0 rgba(0, 0, 0, 0.2);
         }
@@ -59,7 +59,7 @@
           <h1>私はその人を常に先生と呼んでいた。</h1>
         </div>
 
-        <div class="p-card__block">
+        <div class="p-card__block" id="hoge">
           <p>
             だからここでもただ先生と書くだけで本名は打ち明けない。これは世間を憚かる遠慮というよりも、その方が私にとって自然だからである。私はその人の記憶を呼び起すごとに、すぐ「先生」といいたくなる。筆を執っても心持は同じ事である。よそよそしい頭文字などはとても使う気にならない。
           </p>
@@ -69,7 +69,7 @@
 
     <div style="height: 1rem;"></div>
 
-    <div class="p-card -scale-up">
+    <div class="p-card -scale-up" tabindex="0">
       <div class="p-card__inner">
         <div class="p-card__block -heading">
           <h1>私はその人を常に先生と呼んでいた。</h1>
