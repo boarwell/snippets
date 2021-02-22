@@ -56,8 +56,10 @@ export const waitForAnimationFrame = (): Promise<unknown> => {
  */
 export async function* toAsyncIterable<
   EventName extends keyof HTMLElementEventMap
->(target: HTMLElement, eventName: EventName) {
-  while (true) {
+>(target: HTMLElement, eventName: EventName, signal?: AbortSignal) {
+  const isActive = signal === undefined ? true : !signal.aborted ;
+
+  while (isActive) {
     const fired = new Promise<HTMLElementEventMap[EventName]>((resolve) => {
       target.addEventListener(
         eventName,
