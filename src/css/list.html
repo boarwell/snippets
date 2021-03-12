@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .ul {
+        border-left: 3px solid;
+        border-top: 3px solid;
+        list-style: none;
+      }
+
+      .heading {
+        padding-bottom: 5px;
+        /* border-top: 3px solid; */
+        /* border-left: 3px solid; */
+      }
+
+      .heading.-has_body {
+        border: 0;
+      }
+
+      .li {
+        border: 3px solid;
+      }
+
+      .li {
+        padding-top: 5px;
+        margin-left: -20px;
+      }
+
+      .li.-has_body {
+        border: 0;
+        margin-left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="ul">
+      <li class="li -has_body">
+        <div class="heading -has_body">Heading</div>
+
+        <div class="body">
+          <ul class="ul">
+            <li class="li">
+              <div class="heading">Heading 2</div>
+            </li>
+
+            <li class="li">
+              <div class="heading">Heading 3</div>
+            </li>
+
+            <li class="li">
+              <div class="heading">Heading 4</div>
+            </li>
+
+            <li class="li">
+              <div class="heading">Heading</div>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </body>
+</html>
