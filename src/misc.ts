@@ -30,3 +30,32 @@ export function withResource<T, U = unknown>(
 
   return fn(maybeResource);
 }
+
+const DEFAULT_THROTTLE_INTERVAL_MS = 50;
+
+/**
+ * @param f 実行する関数
+ * @param [interval] 実行間隔（ミリ秒）
+ * @return {() => Promise<void>}
+ */
+export function throttle(
+  f: () => void,
+  interval: number = DEFAULT_THROTTLE_INTERVAL_MS
+) {
+  let inThrottle = false;
+
+  return async () => {
+    if (inThrottle) {
+      return;
+    }
+
+    inThrottle = true;
+    f();
+    await new Promise<void>((resolve) => {
+      setTimeout(() => {
+        resolve();
+      }, interval);
+    });
+    inThrottle = false;
+  };
+}
